@@ -1,0 +1,33 @@
+services:
+  app:
+    container_name: mobile-terminal-application-development-app
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile.development
+    volumes:
+      - type: bind
+        source: ../
+        target: /workspaces/mobile-terminal-application-development/
+    networks:
+      - mobile-terminal-application-development
+    tty: true
+  ollama:
+    container_name: mobile-terminal-application-development-ollama
+    image: ollama/ollama:latest
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+      - OLLAMA_PORT=11434
+    hostname: ollama
+    ports:
+      - 11434:11434
+    volumes:
+      - type: bind
+        source: ./ollama/ollama/
+        target: /root/.ollama/
+    networks:
+      - mobile-terminal-application-development
+    tty: true
+
+networks:
+  mobile-terminal-application-development:
+    external: false

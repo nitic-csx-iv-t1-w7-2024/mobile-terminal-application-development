@@ -1,0 +1,38 @@
+name: app test
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: "package.json"
+
+      - name: setup pnpm
+        uses: pnpm/action-setup@v4
+        id: pnpm-install
+        with:
+          run_install: false
+
+      - name: get pnpm cache directory
+        id: get-pnpm-cache-directory
+        run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: cache pnpm dependencies
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.get-pnpm-cache-directory.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-dependencies-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-pnpm-dependencies-
+
+      - name: install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: check
+        run: pnpm run check

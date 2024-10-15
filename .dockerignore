@@ -1,0 +1,24 @@
+# deliverable
+**/build/
+**/dist/
+**/out/
+
+# dependency
+**/node_modules/
+
+# env file
+**/.env*
+!**/.env.example
+
+# expo
+**/.expo/
+
+# misc
+**/.DS_Store
+**/*.pem
+
+# ollama
+**/docker/ollama/
+
+# report
+**/report/

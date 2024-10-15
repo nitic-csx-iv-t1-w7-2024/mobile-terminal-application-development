@@ -1,0 +1,11 @@
+{
+  "name": "mobile-terminal-application-development",
+  "workspaceFolder": "/workspaces/mobile-terminal-application-development/",
+  "dockerComposeFile": ["../docker/docker-compose.development.yaml"],
+  "service": "app",
+  "customizations": {
+    "vscode": {
+      "extensions": ["biomejs.biome", "eamodio.gitlens", "editorconfig.editorconfig", "sbenp.prettier-vscode"]
+    }
+  }
+}

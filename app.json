@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "mobile-termin-application-development",
+    "slug": "mobile-termin-application-development",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./asset/image/icon.png",
+    "scheme": "mobile-terminal-application-development",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./asset/image/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./asset/image/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./asset/image/favicon.png"
+    },
+    "plugins": ["expo-router"],
+    "experiments": {
+      "typedRoutes": true,
+      "tsconfigPaths": true
+    }
+  }
+}

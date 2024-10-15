@@ -1,0 +1,14 @@
+# hadolint ignore=DL3007
+FROM node:20
+
+# hadolint ignore=DL3008
+RUN apt-get update \
+  && apt-get --no-install-recommends -y install gnupg2 ca-certificates \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists \
+  && yarn global add pnpm
+
+WORKDIR /workspaces/mobile-terminal-application-development/
+
+COPY ./ ./
+RUN pnpm install --frozen-lockfile
