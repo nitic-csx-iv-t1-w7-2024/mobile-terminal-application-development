@@ -22,7 +22,8 @@ expo-env.d.ts
 *.pem
 
 # ollama
-docker/ollama/
+docker/ollama/*
+!docker/ollama/.gitkeep
 
 # report
 report/
