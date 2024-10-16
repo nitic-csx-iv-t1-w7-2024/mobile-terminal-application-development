@@ -26,13 +26,19 @@ git clone "https://github.com/nitic-csx-iv-t1-w7-2024/mobile-terminal-applicatio
 
 VSCodeの拡張機能 [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) を使用してコンテナを起動してください。
 
-### 4. start development server
+### 4. install dependencies
+
+```bash
+pnpm install
+```
+
+### 5. start development server
 
 ```bash
 pnpm dev --tunnel
 ```
 
-### 5. open Expo Go app
+### 6. open Expo Go app
 
 Expo Go アプリを使用して、開発中のアプリをプレビューすることができます。  
 [App Store](https://apps.apple.com/jp/app/expo-go/id982107779) もしくは [Google Play](https://play.google.com/store/apps/details?id=host.exp.exponent) からインストールしてください。  
