@@ -22,7 +22,7 @@ services:
       - 11434:11434
     volumes:
       - type: bind
-        source: ./ollama/ollama/
+        source: ./ollama/
         target: /root/.ollama/
     networks:
       - mobile-terminal-application-development
