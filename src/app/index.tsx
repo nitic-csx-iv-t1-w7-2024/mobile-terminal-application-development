@@ -79,6 +79,9 @@ const RootPage = () => {
             borderRadius: 999,
           }}
           onPress={async () => {
+            if (!content) {
+              return;
+            }
             setConversation([...conversation, { role: 'user', content }]);
             setContent('');
 
