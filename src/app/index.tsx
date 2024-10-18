@@ -19,33 +19,47 @@ const RootPage = () => {
         paddingVertical: 32,
       }}
     >
-      <ScrollView
-        style={{
-          margin: 12,
-          display: 'flex',
-        }}
-        contentContainerStyle={{
-          rowGap: 12,
-        }}
-      >
-        {conversation.map((utterance, index) => (
-          <Text
-            key={conversation + index.toString()}
-            style={{
-              paddingHorizontal: 16,
-              paddingVertical: 8,
-              fontSize: 16,
-              fontWeight: 'bold',
-              fontFamily: 'sans',
-              backgroundColor: utterance.role === 'user' ? 'lightgreen' : 'lightgray',
-              borderRadius: 24,
-              alignSelf: utterance.role === 'user' ? 'flex-end' : 'flex-start',
-            }}
-          >
-            {utterance.content}
-          </Text>
-        ))}
-      </ScrollView>
+      {conversation.length === 0 ? (
+        <Text
+          style={{
+            fontSize: 16,
+            fontWeight: 'bold',
+            fontFamily: 'sans',
+            textAlign: 'center',
+            color: 'black',
+          }}
+        >
+          こんにちは
+        </Text>
+      ) : (
+        <ScrollView
+          style={{
+            margin: 12,
+            display: 'flex',
+          }}
+          contentContainerStyle={{
+            rowGap: 12,
+          }}
+        >
+          {conversation.map((utterance, index) => (
+            <Text
+              key={conversation + index.toString()}
+              style={{
+                paddingHorizontal: 16,
+                paddingVertical: 8,
+                fontSize: 16,
+                fontWeight: 'bold',
+                fontFamily: 'sans',
+                backgroundColor: utterance.role === 'user' ? 'lightgreen' : 'lightgray',
+                borderRadius: 24,
+                alignSelf: utterance.role === 'user' ? 'flex-end' : 'flex-start',
+              }}
+            >
+              {utterance.content}
+            </Text>
+          ))}
+        </ScrollView>
+      )}
       <View
         style={{
           marginTop: 'auto',
