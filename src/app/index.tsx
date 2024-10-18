@@ -19,7 +19,7 @@ const RootPage = () => {
         paddingVertical: 32,
       }}
     >
-       {conversation.length === 0 ? (
+      {conversation.length === 0 ? (
         <Text
           style={{
             fontSize: 16,
@@ -32,33 +32,33 @@ const RootPage = () => {
           こんにちは
         </Text>
       ) : (
-      <ScrollView
-        style={{
-          margin: 12,
-          display: 'flex',
-        }}
-        contentContainerStyle={{
-          rowGap: 12,
-        }}
-      >
-        {conversation.map((utterance, index) => (
-          <Text
-            key={conversation + index.toString()}
-            style={{
-              paddingHorizontal: 16,
-              paddingVertical: 8,
-              fontSize: 16,
-              fontWeight: 'bold',
-              fontFamily: 'sans',
-              backgroundColor: 'lightgreen',
-              borderRadius: 24,
-              alignSelf: utterance.role === 'user' ? 'flex-end' : 'flex-start',
-            }}
-          >
-            {utterance.content}
-          </Text>
-        ))}
-      </ScrollView>
+        <ScrollView
+          style={{
+            margin: 12,
+            display: 'flex',
+          }}
+          contentContainerStyle={{
+            rowGap: 12,
+          }}
+        >
+          {conversation.map((utterance, index) => (
+            <Text
+              key={conversation + index.toString()}
+              style={{
+                paddingHorizontal: 16,
+                paddingVertical: 8,
+                fontSize: 16,
+                fontWeight: 'bold',
+                fontFamily: 'sans',
+                backgroundColor: 'lightgreen',
+                borderRadius: 24,
+                alignSelf: utterance.role === 'user' ? 'flex-end' : 'flex-start',
+              }}
+            >
+              {utterance.content}
+            </Text>
+          ))}
+        </ScrollView>
       )}
       <View
         style={{
