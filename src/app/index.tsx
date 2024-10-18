@@ -19,6 +19,19 @@ const RootPage = () => {
         paddingVertical: 32,
       }}
     >
+       {conversation.length === 0 ? (
+        <Text
+          style={{
+            fontSize: 16,
+            fontWeight: 'bold',
+            fontFamily: 'sans',
+            textAlign: 'center',
+            color: 'black',
+          }}
+        >
+          こんにちは
+        </Text>
+      ) : (
       <ScrollView
         style={{
           margin: 12,
@@ -46,6 +59,7 @@ const RootPage = () => {
           </Text>
         ))}
       </ScrollView>
+      )}
       <View
         style={{
           marginTop: 'auto',
