@@ -50,7 +50,7 @@ const RootPage = () => {
                 fontSize: 16,
                 fontWeight: 'bold',
                 fontFamily: 'sans',
-                backgroundColor: 'lightgreen',
+                backgroundColor: utterance.role === 'user' ? 'lightgreen' : 'lightgray',
                 borderRadius: 24,
                 alignSelf: utterance.role === 'user' ? 'flex-end' : 'flex-start',
               }}
@@ -93,6 +93,9 @@ const RootPage = () => {
             borderRadius: 999,
           }}
           onPress={async () => {
+            if (!content) {
+              return;
+            }
             setConversation([...conversation, { role: 'user', content }]);
             setContent('');
 
