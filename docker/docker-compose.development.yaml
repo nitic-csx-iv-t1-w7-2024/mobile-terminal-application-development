@@ -11,22 +11,6 @@ services:
     networks:
       - mobile-terminal-application-development
     tty: true
-  ollama:
-    container_name: mobile-terminal-application-development-ollama
-    image: ollama/ollama:latest
-    environment:
-      - OLLAMA_HOST=0.0.0.0
-      - OLLAMA_PORT=11434
-    hostname: ollama
-    ports:
-      - 5717:11434
-    volumes:
-      - type: bind
-        source: ./ollama/
-        target: /root/.ollama/
-    networks:
-      - mobile-terminal-application-development
-    tty: true
 
 networks:
   mobile-terminal-application-development:
