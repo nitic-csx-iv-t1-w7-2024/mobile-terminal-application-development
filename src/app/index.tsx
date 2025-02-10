@@ -1,5 +1,5 @@
 import { ollama } from '@/lib/ollama';
-import { useState } from 'react';
+import { type ElementRef, useRef, useState } from 'react';
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 type Utterance = {
@@ -10,6 +10,8 @@ type Utterance = {
 const RootPage = () => {
   const [content, setContent] = useState('');
   const [conversation, setConversation] = useState<Utterance[]>([]);
+
+  const scrollViewRef = useRef<ElementRef<typeof ScrollView>>(null);
 
   return (
     <View
@@ -33,6 +35,7 @@ const RootPage = () => {
         </Text>
       ) : (
         <ScrollView
+          ref={scrollViewRef}
           style={{
             margin: 12,
             display: 'flex',
@@ -98,6 +101,7 @@ const RootPage = () => {
             }
             setConversation([...conversation, { role: 'user', content }]);
             setContent('');
+            scrollViewRef.current?.scrollToEnd({ animated: true });
 
             const response = await ollama.chat({
               model: 'llama3.2',
@@ -109,6 +113,7 @@ const RootPage = () => {
               { role: 'user', content },
               { role: 'assistant', content: response.message.content },
             ]);
+            scrollViewRef.current?.scrollToEnd({ animated: true });
           }}
         >
           <Text
